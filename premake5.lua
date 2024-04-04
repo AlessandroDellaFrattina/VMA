@@ -13,7 +13,7 @@ project "VMA"
 
 	files {
 
-		"**.h", "**.cpp"
+		"src/VmaUsage.h", "src/VmaUsage.cpp"
 	}
 
 	filter "system:windows"
