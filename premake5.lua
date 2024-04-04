@@ -8,13 +8,17 @@ project "VMA"
 
 	includedirs {
 
-		"include", "src"
+		"include",
+		"src",
+		"%{IncludeDir.VULKAN_SDK}"
 	}
 
 	files {
 
 		"src/VmaUsage.h", "src/VmaUsage.cpp"
 	}
+
+	defines "VMA_STATIC_VULKAN_FUNCTIONS"
 
 	filter "system:windows"
 		systemversion "latest"
