@@ -3,8 +3,8 @@ project "VMA"
 	language "C++"
 	cppdialect "C++17"
 	staticruntime "Off"
-	targetdir ("%{wks.location}/bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("%{wks.location}/bin-int/" .. outputdir .. "/%{prj.name}")
+	targetdir ("%{wks.location}/bin/" .. outputdir .. "/lib")
+	objdir ("%{wks.location}/bin-int/" .. outputdir .. "/lib")
 
 	includedirs {
 
