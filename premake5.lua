@@ -2,9 +2,9 @@ project "VMA"
 	kind "StaticLib"
 	language "C++"
 	cppdialect "C++17"
-	staticruntime "Off"
-	targetdir ("%{wks.location}/bin/" .. outputdir .. "/lib")
-	objdir ("%{wks.location}/bin-int/" .. outputdir .. "/lib")
+	staticruntime (sruntime)
+	targetdir (bin)
+	objdir (binint)
 
 	includedirs {
 
@@ -15,26 +15,24 @@ project "VMA"
 
 	files {
 
-		"src/VmaUsage.h", "src/VmaUsage.cpp"
+		"src/VmaUsage.h",
+		"src/VmaUsage.cpp"
 	}
-
-	defines "VMA_STATIC_VULKAN_FUNCTIONS"
 
 	filter "system:windows"
 		systemversion "latest"
 
 	filter "configurations:Debug"
-		defines "VE_DEBUG"
-		runtime "Debug"
-		symbols "On"
+		runtime (debugruntime)
+		symbols (debugsymbols)
+		optimize (debugoptimize)
 
 	filter "configurations:Release"
-		defines "VE_RELEASE"
-		runtime "Release"
-		symbols "On"
-		optimize "On"
+		runtime (releaseruntime)
+		symbols (releasesymbols)
+		optimize (releaseoptimize)
 
 	filter "configurations:Dist"
-		defines "VE_DIST"
-		runtime "Release"
-		optimize "On"
+		runtime (distruntime)
+		symbols (distsymbols)
+		optimize (distoptimize)
